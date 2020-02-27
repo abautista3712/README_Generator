@@ -6,17 +6,15 @@ inquirer
     {
       type: "Input",
       name: "TestValue",
-      message: "Testing if inquirer works Q1"
+      message: "Do inputs write in README.md?"
     }
   ])
   .then(function(response) {
-    console.log(response);
+    fs.appendFile("README.md", "\r\n" + response.TestValue, function(err) {
+      if (err) {
+        console.log("Error");
+      } else {
+        console.log("Write File Success!");
+      }
+    });
   });
-
-// fs.appendFile("README.md", "\r\nTesting Part IV", function(err) {
-//   if (err) {
-//     console.log("Error");
-//   } else {
-//     console.log("Write File Success!");
-//   }
-// });
