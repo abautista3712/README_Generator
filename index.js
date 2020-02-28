@@ -1,11 +1,18 @@
-var fs = require("fs");
-var inquirer = require("inquirer");
+// const script = document.createElement("script")
+//   script.src="https://code.jquery.com/jquery-3.4.1.min.js"
+//   script.type = "text/javascript"
+//   script.integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+//   script.crossorigin="anonymous"
+//   document.getElementsByTagName("head")[0].appendChild(script)
+
+const fs = require("fs");
+const inquirer = require("inquirer");
 
 inquirer
   .prompt([
     {
       type: "Input",
-      name: "TestValue",
+      name: "projectTitle",
       message: "Do inputs write in README.md?"
     },
     {
@@ -30,3 +37,10 @@ inquirer
       }
     });
   });
+
+// $.ajax({
+//   url: "https://github.com/login/oauth/authorize"
+//   method: "GET"
+// }).then(function(response){
+//   console.log("ajax test success")
+// })
