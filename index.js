@@ -83,7 +83,7 @@ inquirer
     \r\n## Contributing
     \r\n${response.contributeRepo}
     \r\n
-    \r\n## Installation
+    \r\n## Testing
     \r\nTo run tests, run the following command:
     \r\n\`\`\`
     \r\n${response.runTest}
