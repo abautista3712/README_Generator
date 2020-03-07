@@ -53,7 +53,7 @@ inquirer
     log.write(
       "\r\n# " +
         response.projectName +
-        "\r\nBadge Goes Here | Link to GitHub Goes Here\r\n"
+        "\r\n[BADGE GOES HERE] | [LINK TO GITHUB GOES HERE]\r\n"
     );
     log.write("\r\n## Description\r\n\r\n" + response.description + "\r\n");
     log.write(
@@ -83,5 +83,10 @@ inquirer
         "\r\n```\r\n" +
         response.runTest +
         "\r\n```\r\n"
+    );
+    log.write(
+      "\r\n## Questions\r\n" +
+        `\r\n<img src="[LINK TO USER PIC GOES HERE]" alt="avatar" style="border-radius: 16px" width="30" />\r\n` +
+        "\r\nIf you have any questions about this repo, open an issue or contact [USERNAME HERE] directly at [EMAIL GOES HERE]."
     );
   });
