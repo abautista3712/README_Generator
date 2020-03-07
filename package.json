@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/abautista3712/README_Generator#readme",
   "dependencies": {
+    "axios": "^0.19.2",
     "inquirer": "^7.0.4"
   }
 }
