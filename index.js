@@ -23,10 +23,32 @@ inquirer
       name: "license",
       message: "Please select a license for your project:",
       choices: ["MIT", "APACHE 2.0", "GPL 3.0", "BSD 3", "None"]
+    },
+    {
+      type: "Input",
+      name: "installDep",
+      message: "What command should be run to install dependencies?",
+      default: "npm i"
+    },
+    {
+      type: "Input",
+      name: "runTest",
+      message: "What command should be run to run tests?",
+      default: "npm test"
+    },
+    {
+      type: "Input",
+      name: "usingRepo",
+      message: "What does the user need to know about using the repo?"
+    },
+    {
+      type: "Input",
+      name: "contributeRepo",
+      message: "What does the user need to know about contributing to the repo?"
     }
   ])
   .then(function(response) {
-    fs.appendFile("README.md", "\r\n" + response.gitHubUsername, function(err) {
+    fs.appendFile("README.md", response.gitHubUsername, function(err) {
       if (err) {
         console.log("Error");
       } else {
@@ -52,6 +74,34 @@ inquirer
         console.log("Error");
       } else {
         console.log("Write File 4 Success!");
+      }
+    });
+    fs.appendFile("README.md", "\r\n" + response.installDep, function(err) {
+      if (err) {
+        console.log("Error");
+      } else {
+        console.log("Write File 5 Success!");
+      }
+    });
+    fs.appendFile("README.md", "\r\n" + response.runTest, function(err) {
+      if (err) {
+        console.log("Error");
+      } else {
+        console.log("Write File 6 Success!");
+      }
+    });
+    fs.appendFile("README.md", "\r\n" + response.usingRepo, function(err) {
+      if (err) {
+        console.log("Error");
+      } else {
+        console.log("Write File 7 Success!");
+      }
+    });
+    fs.appendFile("README.md", "\r\n" + response.contributeRepo, function(err) {
+      if (err) {
+        console.log("Error");
+      } else {
+        console.log("Write File 8 Success!");
       }
     });
   });
