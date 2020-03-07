@@ -1,10 +1,3 @@
-// const script = document.createElement("script")
-//   script.src="https://code.jquery.com/jquery-3.4.1.min.js"
-//   script.type = "text/javascript"
-//   script.integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-//   script.crossorigin="anonymous"
-//   document.getElementsByTagName("head")[0].appendChild(script)
-
 const fs = require("fs");
 const inquirer = require("inquirer");
 
@@ -12,28 +5,53 @@ inquirer
   .prompt([
     {
       type: "Input",
-      name: "projectTitle",
-      message: "Do inputs write in README.md?"
+      name: "gitHubUsername",
+      message: "What is your GitHub username?"
     },
     {
       type: "Input",
-      name: "TestValue2",
-      message: "Do inputs write with the second question?"
+      name: "projectName",
+      message: "What would you like to name your project?"
+    },
+    {
+      type: "Input",
+      name: "description",
+      message: "Please provide a brief description of your project:"
+    },
+    {
+      type: "list",
+      name: "license",
+      message: "Please select a license for your project:",
+      choices: ["MIT", "APACHE 2.0", "GPL 3.0", "BSD 3", "None"]
     }
   ])
   .then(function(response) {
-    fs.appendFile("README.md", "\r\n" + response.TestValue, function(err) {
+    fs.appendFile("README.md", "\r\n" + response.gitHubUsername, function(err) {
       if (err) {
         console.log("Error");
       } else {
-        console.log("Write File Success!");
+        console.log("Write File 1 Success!");
       }
     });
-    fs.appendFile("README.md", "\r\n" + response.TestValue2, function(err) {
+    fs.appendFile("README.md", "\r\n" + response.projectName, function(err) {
       if (err) {
         console.log("Error");
       } else {
         console.log("Write File 2 Success!");
+      }
+    });
+    fs.appendFile("README.md", "\r\n" + response.description, function(err) {
+      if (err) {
+        console.log("Error");
+      } else {
+        console.log("Write File 3 Success!");
+      }
+    });
+    fs.appendFile("README.md", "\r\n" + response.license, function(err) {
+      if (err) {
+        console.log("Error");
+      } else {
+        console.log("Write File 4 Success!");
       }
     });
   });
