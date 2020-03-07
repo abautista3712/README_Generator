@@ -96,20 +96,28 @@ inquirer
         }
       }
     );
-    fs.appendFile("README.md", "\r\n" + response.license, function(err) {
-      if (err) {
-        console.log("Error");
-      } else {
-        console.log("Write File 4 Success!");
-      }
-    });
-    // fs.appendFile("README.md", "5\r\n" + response.installDep, function(err) {
+    // fs.appendFile("README.md", "\r\n" + response.license, function(err) {
     //   if (err) {
     //     console.log("Error");
     //   } else {
-    //     console.log("Write File 5 Success!");
+    //     console.log("Write File 4 Success!");
     //   }
     // });
+    fs.appendFile(
+      "README.md",
+      "\r\n## Installation\r\n" +
+        "\r\nTo install necessary dependencies, run the following command:\r\n" +
+        "\r\n```\r\n" +
+        response.installDep +
+        "\r\n```\r\n",
+      function(err) {
+        if (err) {
+          console.log("Error");
+        } else {
+          console.log("Write File 4 Success!");
+        }
+      }
+    );
     // fs.appendFile("README.md", "6\r\n" + response.runTest, function(err) {
     //   if (err) {
     //     console.log("Error");
