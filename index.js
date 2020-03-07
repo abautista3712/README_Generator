@@ -52,17 +52,14 @@ inquirer
     axios
       .get(`https://api.github.com/users/${response.gitHubUsername}`)
       .then(function(data) {
-        // return data;
-        // return data.name
-        // const md = `Test`;
-        // write to file
-        // because now you have access to response and data variables
-
         const md = `
     \r\n#  ${response.projectName} 
+    \r\nCreated by ${data.data.login} | ${data.data.url}
     \r\n![npm](https://img.shields.io/npm/v/fs) ![npm](https://img.shields.io/npm/v/inquirer) ![npm](https://img.shields.io/npm/v/axios)
+    \r\n
     \r\n## Description
     \r\n ${response.description}
+    \r\n
     \r\n## Table of Contents
     \r\n* [Installation](#installation)
     \r\n* [Usage](#usage)
@@ -70,26 +67,31 @@ inquirer
     \r\n* [Contributing](#contributing)
     \r\n* [Test](#tests)
     \r\n* [Questions](#questions)
+    \r\n
     \r\n## Installation
     \r\nTo install necessary dependencies, run the following command:
     \r\n\`\`\`
     \r\n${response.installDep}
     \r\n\`\`\`
+    \r\n
     \r\n## Usage
     \r\n${response.usingRepo}
+    \r\n
     \r\n## License
     \r\n${response.license}
+    \r\n
     \r\n## Contributing
     \r\n${response.contributeRepo}
+    \r\n
     \r\n## Installation
     \r\nTo run tests, run the following command:
     \r\n\`\`\`
     \r\n${response.runTest}
     \r\n\`\`\`
+    \r\n
     \r\n## Questions
-    \r\n<img src="[LINK TO USER PIC GOES HERE]" alt="avatar" style="border-radius: 16px" width="30" />
-    \r\nIf you have any questions about this repo, open an issue or contact ${data.data.name} directly at [EMAIL GOES HERE].`;
-
+    \r\n<img src="${data.data.avatar_url}" alt="avatar" style="border-radius: 16px" width="30" />
+    \r\nIf you have any questions about this repo, open an issue or contact ${data.data.name} directly at ${data.data.email}.`;
         fs.writeFile("README.md", md, err => {
           if (err) {
             console.log(err);
@@ -99,62 +101,3 @@ inquirer
         });
       });
   });
-
-//   const log = fs.createWriteStream("README.md");
-//   log.write(
-//     "\r\n# " +
-//       response.projectName +
-//       `\r\n![npm](https://img.shields.io/npm/v/fs) ![npm](https://img.shields.io/npm/v/inquirer) ![npm](https://img.shields.io/npm/v/axios)`
-//   );
-//   log.write("\r\n## Description\r\n\r\n" + response.description + "\r\n");
-//   log.write(
-//     "\r\n## Table of Contents\r\n" +
-//       "\r\n* [Installation](#installation)\r\n" +
-//       "\r\n* [Usage](#usage)\r\n" +
-//       "\r\n* [License](#license)\r\n" +
-//       "\r\n* [Contributing](#contributing)\r\n" +
-//       "\r\n* [Test](#tests)\r\n" +
-//       "\r\n* [Questions](#questions)\r\n"
-//   );
-//   log.write(
-//     "\r\n## Installation\r\n" +
-//       "\r\nTo install necessary dependencies, run the following command:\r\n" +
-//       "\r\n```\r\n" +
-//       response.installDep +
-//       "\r\n```\r\n"
-//   );
-//   log.write("\r\n## Usage\r\n" + "\r\n" + response.usingRepo + "\r\n");
-//   log.write("\r\n## License\r\n" + "\r\n" + response.license + "\r\n");
-//   log.write(
-//     "\r\n## Contributing\r\n" + "\r\n" + response.contributeRepo + "\r\n"
-//   );
-//   log.write(
-//     "\r\n## Installation\r\n" +
-//       "\r\nTo run tests, run the following command:\r\n" +
-//       "\r\n```\r\n" +
-//       response.runTest +
-//       "\r\n```\r\n"
-//   );
-//   log.write(
-//     "\r\n## Questions\r\n" +
-//       `\r\n<img src="[LINK TO USER PIC GOES HERE]" alt="avatar" style="border-radius: 16px" width="30" />\r\n` +
-//       `\r\nIf you have any questions about this repo, open an issue or contact ${axios
-//         .get("https://api.github.com/users/abautista3712")
-//         .then(function(response) {
-//           return response.data.name;
-//         })} directly at [EMAIL GOES HERE].`
-//   );
-// });
-
-// Link to GitHub
-// axios
-//   .get("https://api.github.com/users/abautista3712")
-//   .then(function(response) {
-//     console.log(response.data.html_url);
-//   });
-
-// axios
-//   .get("https://api.github.com/users/abautista3712")
-//   .then(function(response) {
-//     console.log(response.data.name);
-//   });
