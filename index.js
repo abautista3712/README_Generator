@@ -7,55 +7,64 @@ inquirer
     {
       type: "Input",
       name: "gitHubUsername",
-      message: "What is your GitHub username?"
+      message: "What is your GitHub username?",
     },
     {
       type: "Input",
       name: "projectName",
-      message: "What would you like to name your project?"
+      message: "What would you like to name your project?",
+    },
+    {
+      type: "Input",
+      name: "altText",
+      message: "What would you like the alternate text be for the screenshot?",
     },
     {
       type: "Input",
       name: "description",
-      message: "Please provide a brief description of your project:"
+      message: "Please provide a brief description of your project:",
     },
     {
       type: "Input",
       name: "installDep",
       message: "What command should be run to install dependencies?",
-      default: "npm i"
+      default: "npm i",
     },
     {
       type: "Input",
       name: "usingRepo",
-      message: "What does the user need to know about usage of the repo?"
+      message: "What does the user need to know how to use/access the repo?",
+      default: "Accessible via: http",
     },
     {
       type: "list",
       name: "license",
       message: "Please select a license for your project:",
-      choices: ["MIT", "APACHE 2.0", "GPL 3.0", "BSD 3", "None"]
+      choices: ["MIT", "APACHE 2.0", "GPL 3.0", "BSD 3", "None"],
     },
     {
       type: "Input",
       name: "contributeRepo",
-      message: "What does the user need to know about contributing to the repo?"
+      message:
+        "What does the user need to know about contributing to the repo?",
     },
     {
       type: "Input",
       name: "runTest",
       message: "What command should be run to run tests?",
-      default: "npm test"
-    }
+      default: "npm test",
+    },
   ])
-  .then(function(response) {
+  .then(function (response) {
     axios
       .get(`https://api.github.com/users/${response.gitHubUsername}`)
-      .then(function(data) {
+      .then(function (data) {
         const md = `
     \r\n#  ${response.projectName} 
     \r\nCreated by ${data.data.login} | ${data.data.url}
     \r\n![npm](https://img.shields.io/npm/v/fs) ![npm](https://img.shields.io/npm/v/inquirer) ![npm](https://img.shields.io/npm/v/axios)
+    \r\n
+    \r\n![${response.projectName}Screenshot](./assets/images/${response.projectName}Screenshot.PNG?raw=true "${response.altText}")
     \r\n
     \r\n## Description
     \r\n ${response.description}
@@ -92,7 +101,7 @@ inquirer
     \r\n## Questions
     \r\n<img src="${data.data.avatar_url}" alt="avatar" style="border-radius: 16px" width="30" />
     \r\nIf you have any questions about this repo, open an issue or contact ${data.data.name} directly at ${data.data.email}.`;
-        fs.writeFile("README.md", md, err => {
+        fs.writeFile("README.md", md, (err) => {
           if (err) {
             console.log(err);
           } else {
