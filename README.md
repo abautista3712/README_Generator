@@ -1,3 +1,4 @@
+![README_Generator Demo](./assets/README_Generator_Demo.gif)
 # README_Generator
 
 Created by abautista3712 | https://api.github.com/users/abautista3712
