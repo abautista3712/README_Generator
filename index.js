@@ -32,9 +32,13 @@ inquirer
     },
     {
       type: "Input",
-      name: "usingRepo",
-      message: "What does the user need to know how to use/access the repo?",
-      default: "Accessible via: http",
+      name: "deployedRepo",
+      message: "Where is the application deployed?",
+    },
+    {
+      type: "Input",
+      name: "miscUsage",
+      message: "What does the user need to know how to use the repo?",
     },
     {
       type: "list",
@@ -84,7 +88,8 @@ inquirer
     \r\n\`\`\`
     \r\n
     \r\n## Usage
-    \r\n${response.usingRepo}
+    \r\nAccessible via: ${response.usingRepo}
+    \r\n${response.miscUsage}
     \r\n
     \r\n## License
     \r\n${response.license}
