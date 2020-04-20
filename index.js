@@ -89,7 +89,6 @@ inquirer
     \r\n
     \r\n## Usage
     \r\nAccessible via: ${response.usingRepo}
-    \r\n${response.miscUsage}
     \r\n
     \r\n## License
     \r\n${response.license}
