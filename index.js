@@ -52,12 +52,12 @@ inquirer
       message:
         "What does the user need to know about contributing to the repo?",
     },
-    {
-      type: "Input",
-      name: "runTest",
-      message: "What command should be run to run tests?",
-      default: "npm test",
-    },
+    // {
+    //   type: "Input",
+    //   name: "runTest",
+    //   message: "What command should be run to run tests?",
+    //   default: "npm test",
+    // },
   ])
   .then(function (response) {
     axios
@@ -97,10 +97,7 @@ inquirer
     \r\n${response.contributeRepo}
     \r\n
     \r\n## Testing
-    \r\nTo run tests, run the following command:
-    \r\n\`\`\`
-    \r\n${response.runTest}
-    \r\n\`\`\`
+    \r\nNo tests were explicitly written to test this code.
     \r\n
     \r\n## Questions
     \r\n<img src="${data.data.avatar_url}" alt="avatar" style="border-radius: 16px" width="30" />
